@@ -1,4 +1,4 @@
-# Swipe Invoice Management System
+# Invoice Management System
 
 > AI-Powered Invoice Data Extraction and Management System
 
@@ -254,25 +254,12 @@ cd backend
 # Deploy to Railway or Render
 ```
 
-## 🤝 Contributing
-
-This is an assignment submission. For educational purposes only.
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) file
-
 ## 👨‍💻 Author
 
 **Medidala Aditya**
 - Institution: VIT Vellore (B.Tech IT, 2022-26)
 - Email: djaditya200@gmail.com
 
-## 🙏 Acknowledgments
 
-- Assignment provided by Swipe
-- Google Document AI for OCR
-- Google Gemini for LLM extraction
-- Mantine UI for components
 
 

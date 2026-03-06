@@ -18,7 +18,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 def map_to_frontend_schema(data: dict) -> dict:
     """
     Maps backend Python dicts (snake_case) to Frontend JSON (camelCase).
@@ -75,14 +74,13 @@ def map_to_frontend_schema(data: dict) -> dict:
 @app.post("/api/extract-batch")
 async def extract_batch(files: List[UploadFile] = File(...)):
     results = []
-    
     for file in files:
         try:
             content = await file.read()
             raw_invoices = []
-
+            filename = file.filename or ""
             # A. Handle Excel
-            if file.filename.endswith(('.xlsx', '.xls')):
+            if filename.endswith(('.xlsx', '.xls')):
                 df = pd.read_excel(io.BytesIO(content))
                 # Ensure all columns are strings to prevent JSON errors
                 csv_text = df.astype(str).to_csv(index=False)
@@ -91,7 +89,8 @@ async def extract_batch(files: List[UploadFile] = File(...)):
 
             # B. Handle PDF / Images
             else:
-                doc = process_document(content, file.content_type)
+                mime_type = file.content_type or "application/octet-stream"
+                doc = process_document(content, mime_type)
                 # Pass both text and entities to LLM
                 entities = [{"type": e.type_, "text": e.mention_text} for e in doc.entities]
                 single_data = normalize_invoice(doc.text, entities)

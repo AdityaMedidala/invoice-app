@@ -80,7 +80,7 @@ def normalize_invoice(raw_text: str, entities: list) -> dict:
 
     # Using gemini-2.0-flash (Updated from 2.5 which might not be available yet)
     response = client.models.generate_content(model="gemini-2.0-flash", contents=prompt)
-    text = response.text.strip()
+    text = (response.text or "").strip()
     
     # Extract JSON from response
     match = re.search(r"\{.*\}", text, re.DOTALL)
@@ -163,7 +163,7 @@ def extract_bulk_invoices(csv_text: str) -> dict:
     """
     
     response = client.models.generate_content(model="gemini-2.0-flash", contents=prompt)
-    text = response.text.strip()
+    text = (response.text or "").strip()
     
     # Extract JSON from response
     match = re.search(r"\{.*\}", text, re.DOTALL)
