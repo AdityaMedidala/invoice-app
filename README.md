@@ -151,19 +151,6 @@ PROCESSOR_ID=your_document_ai_processor_id
 - Status badges show data completeness
 - Expand invoice rows for detailed breakdown
 
-## 🧪 Test Cases
-
-All test cases from the assignment have been successfully implemented:
-
-| Test Case | Description | Status |
-|-----------|-------------|--------|
-| Case 1 | Invoice PDFs | ✅ Passed |
-| Case 2 | PDF + Images | ✅ Passed |
-| Case 3 | Single Excel File | ✅ Passed |
-| Case 4 | Multiple Excel Files | ✅ Passed |
-| Case 5 | All File Types | ✅ Passed |
-
-See [test documentation](./docs/test-cases.md) for detailed results with screenshots.
 
 ## 📁 Project Structure
 

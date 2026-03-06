@@ -16,3 +16,12 @@ __pycache__/
 *.lnk
 .DS_Store
 dist/
+
+# PyCharm
+.idea/
+
+# JetBrains module files
+*.iml
+
+# Typescript build cache
+*.tsbuildinfo
